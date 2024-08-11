@@ -39,6 +39,7 @@
 
             .contentEmailMessage {
                 color: hsl(0, 93%, 68%);
+                display: block;
                 font-size: 12px;
                 letter-spacing: 0.5px;
                 margin-left: 32px;
@@ -91,7 +92,12 @@
                 left: 80%;
                 padding: 16px 48px;
                 position: absolute;
-                top: calc(50% - 22px);
+                top: calc(50% - 24px);
+            }
+
+            button:focus {
+                background-image: linear-gradient(135deg, hsl(0, 80%, 95%), hsl(0, 80%, 86%));
+                outline: none;
             }
 
             button:hover {
@@ -128,7 +134,7 @@
             }
 
             input.error {
-                border: 2px solid hsl(0, 93%, 68%);
+                border: 1px solid hsl(0, 93%, 68%);
             }
 
             input::placeholder {
@@ -148,6 +154,44 @@
                 line-height: 175%;
             }
         </style>
+        <script>
+            document.addEventListener('DOMContentLoaded',() => {
+                const contentEmailIcon = document.querySelector('.contentEmailIcon');
+                const contentEmailMessage = document.querySelector('.contentEmailMessage');
+                const input = document.querySelector('input');
+                const button = document.querySelector('button');
+                let email = '';
+
+                button.addEventListener('click',validate);
+                button.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter' || event.key === ' '){
+                        validate.call(this);
+                    }
+                });
+
+                function validate() {
+                    email = input.value;
+                    console.log(email);
+
+                    if(isValidEmail(email)){
+                        contentEmailIcon.classList.remove('error');
+                        contentEmailMessage.classList.remove('error');
+                        input.classList.remove('error');
+                    } else {
+                        contentEmailIcon.classList.add('error');
+                        contentEmailMessage.classList.add('error');
+                        input.classList.add('error');
+                    }
+
+                    this.blur();
+                }
+
+                function isValidEmail(email) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return emailRegex.test(email);
+                }
+            });
+        </script>
     </head>
     <body>
         <main>
@@ -162,9 +206,9 @@
                     <p>Hello fellow shoppers! We're currently building our new fashion store.
                         Add your email below to stay up-to-date with announcements and our launch deals.</p>
                     <div class="contentEmail">
-                        <input placeholder="Email Address">
+                        <input placeholder="Email Address" tabindex="1">
                         <img class="contentEmailIcon" src="images/icon-error.svg" alt="error icon">
-                        <button><img src="images/icon-arrow.svg" alt="arrow icon"></button>
+                        <button><img src="images/icon-arrow.svg" alt="arrow icon" tabindex="2"></button>
                         <label class="contentEmailMessage">Please provide a valid Email Address!</label>
                     </div>
                 </header>
