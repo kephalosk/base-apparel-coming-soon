@@ -27,17 +27,27 @@
             }
 
             .contentEmailIcon {
+                display: none;
                 left: 72%;
                 position: absolute;
                 top: calc(50% - 8px);
             }
 
-            .contentEmail label {
-                color: hsl(0, 93%, 68%);
+            .contentEmailIcon.error {
                 display: block;
+            }
+
+            .contentEmailMessage {
+                color: hsl(0, 93%, 68%);
                 font-size: 12px;
+                letter-spacing: 0.5px;
                 margin-left: 32px;
                 margin-top: 8px;
+                opacity: 0;
+            }
+
+            .contentEmailMessage.error {
+                opacity: 1;
             }
 
             .logoDesktop {
@@ -81,7 +91,7 @@
                 left: 80%;
                 padding: 16px 48px;
                 position: absolute;
-                top: calc(50% - 24px);
+                top: calc(50% - 22px);
             }
 
             button:hover {
@@ -117,6 +127,10 @@
                 width: 80%;
             }
 
+            input.error {
+                border: 2px solid hsl(0, 93%, 68%);
+            }
+
             input::placeholder {
                 color: hsl(0, 36%, 70%);
                 letter-spacing: 2px;
@@ -133,11 +147,6 @@
                 letter-spacing: 1px;
                 line-height: 175%;
             }
-
-            .colors {
-                color: hsl(0, 36%, 70%);
-                color: hsl(0, 93%, 68%);
-                color: hsl(0, 6%, 24%);
         </style>
     </head>
     <body>
@@ -156,7 +165,7 @@
                         <input placeholder="Email Address">
                         <img class="contentEmailIcon" src="images/icon-error.svg" alt="error icon">
                         <button><img src="images/icon-arrow.svg" alt="arrow icon"></button>
-                        <label class="contentEmailMessage">Please provide a valid email!</label>
+                        <label class="contentEmailMessage">Please provide a valid Email Address!</label>
                     </div>
                 </header>
             </section>
