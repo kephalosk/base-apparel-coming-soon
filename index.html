@@ -36,6 +36,11 @@
                 @media (min-width: 601px) and (max-width: 710px) {
                     padding: 2vw 4vw 2vw 3vw;
                 }
+
+                @media (max-width: 600px) {
+                    padding: 0;
+                    width: 100%;
+                }
             }
 
             .contentEmail {
@@ -46,7 +51,32 @@
                 display: none;
                 left: 72%;
                 position: absolute;
-                top: calc(50% - 8px);
+                top: calc(42%);
+
+                @media (min-width: 981px) and (max-width: 1120px) {
+                    left: 68%;
+                    top: calc(37%);
+                }
+
+                @media (min-width: 841px) and (max-width: 980px) {
+                    left: 67%;
+                    top: calc(35%);
+                }
+
+                @media (min-width: 711px) and (max-width: 840px) {
+                    left: 60%;
+                    top: calc(33%);
+                }
+
+                @media (min-width: 601px) and (max-width: 710px) {
+                    left: 59%;
+                    top: calc(29%);
+                }
+
+                @media (max-width: 600px) {
+                    left: 64%;
+                    top: calc(27%);
+                }
             }
 
             .contentEmailIcon.error {
@@ -61,29 +91,40 @@
                 margin-left: 32px;
                 margin-top: 8px;
                 opacity: 0;
+
+                @media (max-width: 600px) {
+                    font-size: 12px;
+                    margin-left: 20px;
+                }
             }
 
             .contentEmailMessage.error {
                 opacity: 1;
             }
 
-            .image {
-                width: 100%;
-            }
-
-            .logoDesktop {
+            .imageDesktop {
                 display: block;
+                width: 100%;
 
                 @media (max-width: 600px) {
                     display: none;
                 }
             }
 
-            .logoMobile {
+            .imageMobile {
                 display: none;
 
                 @media (max-width: 600px) {
                     display: block;
+                    width: 100%;
+                }
+            }
+
+            .logo {
+                @media (max-width: 600px) {
+                    height: 21px;
+                    padding: 32px;
+                    width: auto;
                 }
             }
 
@@ -92,7 +133,7 @@
                 background-image: url('images/bg-pattern-desktop.svg');
                 background-repeat: no-repeat;
                 background-position: 0 -356px;
-                background-size: 1200px auto;
+                background-size: 85vw auto;
                 display: flex;
                 flex-direction: column;
                 font-family: "Josefin Sans",sans-serif;
@@ -101,6 +142,9 @@
 
                 @media (max-width: 600px) {
                     background-image: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                    background-size: auto;
                 }
             }
 
@@ -132,6 +176,12 @@
                     padding: 12px 36px;
                     top: calc(13%);
                 }
+
+                @media (max-width: 600px) {
+                    left: 75%;
+                    padding: 15px 34px;
+                    top: calc(8%);
+                }
             }
 
             button:focus {
@@ -147,6 +197,10 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: end;
+
+                @media (max-width: 600px) {
+                    padding: 60px 32px 90px 32px;
+                }
             }
 
             h1 {
@@ -162,6 +216,12 @@
 
                 @media (min-width: 601px) and (max-width: 710px) {
                     letter-spacing: 15px;
+                }
+
+                @media (max-width: 600px) {
+                    font-size: 40px;
+                    letter-spacing: 12px;
+                    text-align: center;
                 }
             }
 
@@ -183,6 +243,13 @@
                     font-size: 12px;
                     padding: 12px 12px 12px 24px;
                 }
+
+                @media (max-width: 600px) {
+                    background-image: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+                    font-size: 12px;
+                    font-weight: normal;
+                    padding: 16px 16px 16px 20px;
+                }
             }
 
             input.error {
@@ -198,6 +265,10 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 width: 100%;
+
+                @media (max-width: 600px) {
+                    grid-template-columns: 1fr;
+                }
             }
 
             p {
@@ -211,6 +282,12 @@
 
                 @media (min-width: 601px) and (max-width: 710px) {
                     font-size: 12px;
+                }
+
+                @media (max-width: 600px) {
+                    font-size: 12px;
+                    text-align: center;
+                    margin-bottom: 28px;
                 }
             }
         </style>
@@ -255,9 +332,9 @@
     </head>
     <body>
         <main>
-            <img class="logoMobile" src="images/logo.svg" alt="brand logo">
             <section class="content">
-                <img class="logoDesktop" src="images/logo.svg" alt="brand logo">
+                <img class="logo" src="images/logo.svg" alt="brand logo">
+                <img class="imageMobile" src="images/hero-mobile.jpg" alt="image of woman">
                 <header>
                     <h1>
                         <span>We're</span>
@@ -273,7 +350,7 @@
                     </div>
                 </header>
             </section>
-            <img class="image" src="images/hero-desktop.jpg" alt="image of woman">
+            <img class="imageDesktop" src="images/hero-desktop.jpg" alt="image of woman">
         </main>
         <footer class="attribution">
             Challenge by <a href="https://www.frontendmentor.io?ref/challenge" target="_blank">Frontend Mentor</a>.
